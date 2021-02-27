@@ -1,4 +1,4 @@
-# Study records with open tutorials 👩🏻‍💻
+# Studying records with open tutorials 👩🏻‍💻
 
 ### about
 - 이곳은 **생활코딩 공부 기록 저장소**입니다.
