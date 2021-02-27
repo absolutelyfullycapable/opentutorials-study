@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+        <title>event</title>
+    </head>
+
+    <body>
+        <input type="button" value="hi" onclick="alert('hi!')">
+        <!-- 
+            1. onclick 속성의 값으로는 반드시 JS가 와야 됨
+            2. onclick 속성의 값은 웹 브라우저가 기억하고 있다가 onclick 속성이 위치하고 있는 태그(현재 문서에서는 input)를 클릭했을 때 기억하고 있었던 JS 코드를 JS 문법에 따라 해석해서 웹 브라우저가 동작함
+        -->
+        <input type="text" onchange="alert('change')">
+        <!-- onchange: 바뀌었을 때 -->
+        <input type="text" onkeydown="alert('keydown')">
+        <!-- onkeydown: 키를 눌렀을 때 -->
+    </body>
+</html>

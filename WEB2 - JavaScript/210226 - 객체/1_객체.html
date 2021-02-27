@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+        <title>객체 (Object)</title>
+        <script>
+            function LinksSetColor(color) {
+                var alist = document.querySelectorAll('a'),
+                    i = 0;
+                while(i < alist.length) {
+                    alist[i].style.color = color;
+                    i++;
+                }
+            }
+            
+            function BodySetColor(color) {
+                document.querySelector('body').style.color = color;
+            }
+            
+            function BodySetBackgroundColor(color) {
+                document.querySelector('body').style.backgroundColor = color;
+                /*
+                    document => 객체
+                    .querySelector => document라는 객체에 속해 있는 함수 => 객체에 속해 있는 함수는 함수라고 하지 않고 '메소드(method)'라고 함!
+                */
+            }
+
+            function nightDayHandler(self) {
+                var target = document.querySelector('body');
+                if(self.value === 'night') {
+                    Body.setColor('white');
+                    Body.setBackgroundColor('black');
+                    Links.setColor('powderblue')
+                    target.style.transition = '0.3s';
+                    self.value = 'day';
+                } else {
+                    Body.setColor('black');
+                    Body.setBackgroundColor('white');
+                    Links.setColor('#eee')
+                    target.style.transition = '0.3s';
+                    self.value = 'night';
+                }
+            }
+        </script>
+    </head>
+
+    <body>
+        <!-- 
+            - 객체는 함수랑 대립되는 개념이 아니라 함수라는 것 기반 위에서 객체라고 하는 것이 존재
+            - 서로 연관된 함수와 서로 연관된 변수를 같은 이름으로 그룹핑해서 잘 정리정돈하기 위한 도구
+         -->
+        <h1><a href="index.html">WEB</a></h1>
+        <input id="night_day" type="button" value="night" onclick="nightDayHandler(this)">
+        <ol>
+            <li><a href="1.html">HTML</a></li>
+            <li><a href="2.html">CSS</a></li>
+            <li><a href="3.html">JavaScript</a></li>
+        </ol>
+        <h2>JavaScript</h2>
+        <p>
+            JavaScript (/ˈdʒɑːvəˌskrɪpt/[6]), often abbreviated as JS, is a high-level, dynamic, weakly typed, prototype-based, multi-paradigm, and interpreted programming language. Alongside HTML and CSS, JavaScript is one of the three core technologies of World Wide Web content production. It is used to make webpages interactive and provide online programs, including video games. The majority of websites employ it, and all modern web browsers support it without the need for plug-ins by means of a built-in JavaScript engine. Each of the many JavaScript engines represent a different implementation of JavaScript, all based on the ECMAScript specification, with some engines not supporting the spec fully, and with many engines supporting additional features beyond ECMA.
+        </p>
+    </body>
+</html>

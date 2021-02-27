@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+        <title>함수</title>
+    </head>
+
+    <body>
+        <h1>function</h1>
+        <!-- 기본 문법 -->
+        <h2>Basic</h2>
+        <ul>
+            <script>
+                function two() {
+                    document.write('<li>2-1</li>');
+                    document.write('<li>2-2</li>');
+                }
+                document.write('<li>1</li>');
+                two();
+                document.write('<li>3</li>');
+                two();
+            </script>
+        </ul>
+
+        <!-- 매개변수(Parameter)와 인자(Argument) -->
+        <h2>Parameter & Argument</h2>
+        <p>
+            1. 함수는 입력과 출력으로 이루어져 있음<br>
+            - 여기서 입력에 해당되는 것 -> 매개변수(Parameter), 인자(Argument)
+        </p>
+        <script>
+            function onePlusOne() {
+                document.write(1 + 1 + '<br>');
+            }
+            onePlusOne();
+
+            function sum(x, y) { // x, y => 매개변수(Parameter): 인자값을 받아서 함수 안으로 매개해 주는 변수
+                document.write(x + y + '<br>');
+            }
+            sum(2, 3); // 5
+            // 여기서 함수로 전달하는 2, 3이라는 값 => 인자(Argument)
+            sum(3, 4); // 7
+
+            function sumColorRed(x, y) {
+                document.write('<div style="color: red">' + (x + y) + '</div><br>');
+            }
+            sumColorRed(2, 3);
+        </script>
+
+        <!-- 리턴(Return) -->
+        <h2>Return</h2>
+        <p>
+            1. 함수는 입력과 출력으로 이루어져 있음<br>
+            - 여기서 출력에 해당되는 것 -> 리턴(Return)
+        </p>
+        <script>
+            function sum2(left, right) {
+                return left + right;
+                // left, right라는 매개변수를 통해 들어간 인자를 return을 통해 출력함으로 다양한 용도로 함수를 활용할 수 있게 됨
+            }
+            document.write(sum2(2, 3) + '<br>'); // 5
+            document.write('<div style="color: red">' + sum2(2, 3) + '</div>');
+            document.write('<div style="font-size: 3rem">' + sum2(2, 3) + '</div>');
+        </script>
+    </body>
+</html>

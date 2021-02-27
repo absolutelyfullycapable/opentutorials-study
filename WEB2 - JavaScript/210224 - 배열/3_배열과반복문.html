@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+        <title>배열과 반복문</title>
+    </head>
+
+    <body>
+        <h1>Loop & Array</h1>
+        <script>
+            /* 내가 한 거
+            document.write('<ul>');
+            var coworkers = ["egoing", "leezche", "duru", "taeho"],
+                i = 0;
+            while(i < 4) {
+                document.write('<li>' + coworkers[i] + '</li>');
+                i++;
+            }
+            document.write('</ul>');
+            */
+            var site = ["naver.com", "daum.net", "google.com", "samsung.com"]
+            var coworkers = ["naver", "daum", "google", "samsung"]; // 배열의 각각 항목들을 원소(element)라고 함
+        </script>
+        <h2>Co workers</h2>
+        <ul>
+            <script>
+                var i = 0;
+                while(i < coworkers.length) {
+                    document.write('<li><a href ="https://www.' + site[i] +'" target="_blank">' + coworkers[i] + '</a></li>');
+                    i++;
+                }
+            </script>
+        </ul>
+
+        <!-- 
+            배열: 순서대로 서로 연관된 데이터를 잘 정리정돈하는 것
+            반복문: 순서대로 배열에 담긴 데이터를 하나씩 꺼내서 자동화된 처리를 할 수 있는 문법
+            ==> 환상의 콤비!!
+         -->
+    </body>
+</html>

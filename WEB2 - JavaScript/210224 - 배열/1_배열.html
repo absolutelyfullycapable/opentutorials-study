@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+        <title>배열</title>
+    </head>
+
+    <body>
+        <h1>Array</h1>
+        <p>데이터가 많아짐에 따라 그 데이터를 그냥 둘 수 없어 서로 연관된 데이터끼리 잘 정리하고 정돈해서 담아두는 상자 같은 개념</p>
+
+        <!-- 배열 만드는 방법 -->
+        <h2>Syntax (문법)</h2>
+        <script>
+            var coworkers = ["egoing", "leezche"]; // coworkers라는 변수에 배열이라는 새로운 데이터 타입이 생김
+        </script>
+
+        <!-- 가져오는 방법 -->
+        <h2>gets</h2>
+        <script>
+            document.write(coworkers[0]); // index 0번 호출
+            document.write(coworkers[1]); // index 1번 호출
+        </script>
+
+        <!-- 데이터 추가하기 -->
+        <h2>add</h2>
+        <script>
+            // .push() : 뒤쪽에 추가
+            coworkers.push('duru');
+            coworkers.push('taeho');
+
+            // .unshift() : 앞쪽에 추가
+            coworkers.unshift('jihye');
+            coworkers.unshift('haha');
+        </script>
+
+        <!-- 값이 몇 개 있는지 -->
+        <h2>count</h2>
+        <script>
+            document.write(coworkers.length);
+            // index 번호는 0부터 시작하지만 개수를 셀 때는 1부터 세기 시작
+        </script>
+    </body>
+</html>

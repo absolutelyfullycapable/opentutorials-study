@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+        <title>JS example 1</title>
+    </head>
+
+    <body>
+        <h1>WEB</h1>
+        <!-- 
+            <input type="button" value="night" onclick="
+                var target = document.querySelector('body');
+                if(this.value === 'night') {
+                    target.style.backgroundColor = 'black';
+                    target.style.color = 'white';
+                    target.style.transition = '0.3s';
+                    this.value = 'day';
+                } else {
+                    target.style.backgroundColor = 'white';
+                    target.style.color = 'black';
+                    target.style.transition = '0.3s';
+                    this.value = 'night';
+                }
+            ">
+         -->
+        <input type="button" value="night" onclick="
+            if(this.value === 'night') {
+                nightMode();
+            } else {
+                dayMode();
+            }
+        ">
+        <ol>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+        </ol>
+        <h2>JavaScript</h2>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugit eveniet alias exercitationem omnis, praesentium vel, cumque vitae reprehenderit, iste hic error unde animi sequi atque voluptates cupiditate autem pariatur perferendis.</p>
+
+        <script>
+            /*
+                리팩토링
+                    - 동작하는 건 그대로 두고 코드 자체를 효율적으로 만들어서 가독성을 높이고, 유지 보수를 하기 편하게 만들고, 중복된 코드를 낮추는 방향으로 코드를 개선하는 작업 -> 틈틈이 해야 좋은 프로그램을 만들 수 있음
+            */
+            var bodyStyle = document.querySelector('body').style;
+
+            function nightMode() {
+                bodyStyle.backgroundColor  = "black";
+                bodyStyle.color  = "white";
+                bodyStyle.transition = "0.3s";
+                document.querySelector('input').value = "day";
+            }
+
+            function dayMode() {
+                bodyStyle.backgroundColor  = "white";
+                bodyStyle.color  = "black";
+                bodyStyle.transition = "0.3s";
+                document.querySelector('input').value = "night";
+            }
+        </script>
+    </body>
+</html> 

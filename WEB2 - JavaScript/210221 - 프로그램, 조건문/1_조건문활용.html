@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+        <title>JS example 1</title>
+    </head>
+
+    <body>
+        <!-- 
+            조건문: 하나의 프로그램이 하나의 흐름으로 가는 것이 아니라 조건에 따라 다른 순서의 기능들이 실행되는 것
+         -->
+
+
+        <h1>WEB</h1>
+        <input type="button" value="night" id="night_day" onclick="
+            if(document.querySelector('#night_day').value === 'night') {
+                nightMode();
+            } else {
+                dayMode();
+            }
+        ">
+        <ol>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+        </ol>
+        <h2>JavaScript</h2>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugit eveniet alias exercitationem omnis, praesentium vel, cumque vitae reprehenderit, iste hic error unde animi sequi atque voluptates cupiditate autem pariatur perferendis.</p>
+
+        <script>
+            var bodyStyle = document.querySelector('body').style;
+
+            function nightMode() {
+                bodyStyle.backgroundColor  = "black";
+                bodyStyle.color  = "white";
+                bodyStyle.transition = "0.3s";
+                document.querySelector('#night_day').value = "day";
+            }
+
+            function dayMode() {
+                bodyStyle.backgroundColor  = "white";
+                bodyStyle.color  = "black";
+                bodyStyle.transition = "0.3s";
+                document.querySelector('#night_day').value = "night";
+            }
+        </script>
+    </body>
+</html> 

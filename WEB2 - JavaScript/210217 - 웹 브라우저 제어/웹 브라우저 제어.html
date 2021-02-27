@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+        <title>JS example 1</title>
+    </head>
+
+    <body style="background-color: black; color: #fff;">
+    <!-- background-color나 color 속성을 주고자 하는 태그가 누구인가를 웹 브라우저에게 알려 주는 방법을 JS 문법으로 어떻게? => 제어하고자 하는 태그를 선택하는 방법 (중요!! - 다음 시간에 -) -->
+        <h1>WEB</h1>
+        <input type="button" value="night" onclick="
+        document.querySelector('body').style.backgroundColor = 'black';
+        document.querySelector('body').style.color = 'white';
+        document.querySelector('body').style.transition = '0.3s'">
+        <input type="button" value="day" onclick="
+        document.querySelector('body').style.backgroundColor = 'white';
+        document.querySelector('body').style.color = 'black';
+        document.querySelector('body').style.transition = '0.3s'">
+        <ol>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+        </ol>
+        <h2>JavaScript</h2>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugit eveniet alias exercitationem omnis, praesentium vel, cumque vitae reprehenderit, iste hic error unde animi sequi atque voluptates cupiditate autem pariatur perferendis.</p>
+    </body>
+</html> 

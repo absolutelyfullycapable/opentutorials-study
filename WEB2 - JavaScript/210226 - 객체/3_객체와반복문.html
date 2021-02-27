@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+        <title>객체와 반복문</title>
+    </head>
+
+    <body>
+        <h1>객체 (Object)</h1>
+        <p>이름이 있는 정리정돈 상자라고 생각하면 됨</p>
+
+        <!-- 객체의 문법 (생성하는 법) -->
+        <h2>Create</h2>
+        <script>
+            var coworkers = {
+                "programmer": "egoing",
+                "designer": "leezche"
+            };
+
+            document.write("programmer: " + coworkers.programmer + "<br>");
+            document.write("designer: " + coworkers.designer + "<br>");
+
+            coworkers.bookkeeper = "duru";
+            coworkers["data scientist"] = "taeho";
+            document.write("bookkeeper: " + coworkers.bookkeeper + "<br>");
+            document.write("data scientist: " + coworkers["data scientist"]);
+        </script>
+
+        <!-- 객체 안에 생성된 데이터들을 모조리 다 가지고 와야 할 때 -->
+        <h2>Iterate</h2>
+        <script>
+            for(var key in coworkers) {
+                /*
+                    - 객체 내 모든 데이터를 순회하면서 우리에게 필요한 데이터가 있는지, 없는지 확인할 수 있음
+                    - 여기서 key는 programmer, designer, bookkeeper, data scientist를 가리킴
+                    - 반면 배열은 순서대로 정리정돈되어 있기 때문에 index라는 표현을 씀
+                */
+                document.write(key + ": " + coworkers[key] + "<br>");
+            }
+        </script>
+    </body>
+</html>

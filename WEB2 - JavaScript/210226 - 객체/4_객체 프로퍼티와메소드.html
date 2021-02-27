@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+        <title>객체 프로퍼티와 메소드</title>
+    </head>
+
+    <body>
+        <h1>객체 (Object)</h1>
+        <p>이름이 있는 정리정돈 상자라고 생각하면 됨</p>
+
+        <!-- 객체의 문법 (생성하는 법) -->
+        <h2>Create</h2>
+        <script>
+            var coworkers = {
+                "programmer": "egoing",
+                "designer": "leezche"
+            };
+
+            document.write("programmer: " + coworkers.programmer + "<br>");
+            document.write("designer: " + coworkers.designer + "<br>");
+
+            coworkers.bookkeeper = "duru";
+            coworkers["data scientist"] = "taeho";
+            document.write("bookkeeper: " + coworkers.bookkeeper + "<br>");
+            document.write("data scientist: " + coworkers["data scientist"]);
+        </script>
+
+        <!-- 객체 안에 생성된 데이터들을 모조리 다 가지고 와야 할 때 -->
+        <h2>Iterate</h2>
+        <script>
+            for(var key in coworkers) {
+                document.write(key + ": " + coworkers[key] + "<br>");
+            }
+        </script>
+
+        <!-- 프로퍼티와 메소드 -->
+        <h2>Property & Method</h2>
+        <script>
+            // 객체에는 함수도 담을 수 있음
+            // 객체에 소속된 변수의 값으로 함수를 지정할 수 있음 => 객체에 소속된 함수를 만들 수 있음
+            coworkers.showAll = function() { // coworkers라는 객체에 showAll이라는 메소드 추가
+                for(var key in this) {
+                    document.write(key + ": " + this[key] + "<br>");
+                }
+            };
+            coworkers.showAll();
+
+            // 프로퍼티: 객체에 소속된 변수
+            // 메소드: 객체에 소속된 함수
+        </script>
+    </body>
+</html>

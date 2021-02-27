@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+        <title>객체의 쓰기와 읽기</title>
+    </head>
+
+    <body>
+        <h1>객체 (Object)</h1>
+        <p>이름이 있는 정리정돈 상자라고 생각하면 됨</p>
+
+        <!-- 객체의 문법 (생성하는 법) -->
+        <h2>Create</h2>
+        <script>
+            // ========= 객체를 만드는 방법 =========
+            // 배열은 중괄호, 객체는 대괄호
+            var coworkers = {
+                "programmer": "egoing",
+                "designer": "leezche"
+            };
+
+            // ========= 객체에서 데이터를 가져오는 방법 =========
+            document.write("programmer: " + coworkers.programmer + "<br>");
+            // . => object access operator (객체에 접근하는 오퍼레이터)
+            document.write("designer: " + coworkers.designer + "<br>");
+
+            // ========= 이미 만들어진 객체에 데이터 추가하는 방법 =========
+            coworkers.bookkeeper = "duru";
+            coworkers["data scientist"] = "taeho";
+            document.write("bookkeeper: " + coworkers.bookkeeper + "<br>");
+            document.write("data scientist: " + coworkers["data scientist"]);
+        </script>
+    </body>
+</html>
