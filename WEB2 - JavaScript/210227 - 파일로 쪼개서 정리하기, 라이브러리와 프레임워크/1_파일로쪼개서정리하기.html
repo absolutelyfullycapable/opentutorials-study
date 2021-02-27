@@ -5,52 +5,21 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
         <title>파일로 쪼개서 정리하기</title>
-        <script>
-            var Links = {
-                setColor: function(color) {
-                    var alist = document.querySelectorAll('a'),
-                        i = 0;
-                    while(i < alist.length) {
-                        alist[i].style.color = color;
-                        i++;
-                    }
-                }
-            },
-                Body = {
-                    setColor: function(color) {
-                        document.querySelector('body').style.color = color;
-                    },
-                    setBackgroundColor: function(color) {
-                        document.querySelector('body').style.backgroundColor = color;
-                    }
-                }
-
-            function nightDayHandler(self) {
-                var target = document.querySelector('body');
-                if(self.value === 'night') {
-                    Body.setColor('white');
-                    Body.setBackgroundColor('black');
-                    Links.setColor('powderblue')
-                    target.style.transition = '0.3s';
-                    self.value = 'day';
-                } else {
-                    Body.setColor('black');
-                    Body.setBackgroundColor('white');
-                    Links.setColor('#eee')
-                    target.style.transition = '0.3s';
-                    self.value = 'night';
-                }
-            }
-        </script>
+        <script src="sources/colors.js"></script>
+        <!-- src: source의 약자 -->
     </head>
 
     <body>
-        <h1><a href="index.html">WEB</a></h1>
+        <!--
+            1. 파일로 쪼개서 정리하면 유지 보수 매우 편리!
+            2. 한번 웹사이트에 다운로드된 파일은 웹사이트가 컴퓨터에 저장함 -> 다음에 접속할 때 저장된 파일을 읽어서 네트워크를 통하지 않게 함 -> 서버 입장에서는 비용 절감 / 사용자 입장에서는 네트워크 트래픽 절감 / 훨씬 더 빠르게 웹사이트에 화면을 표시할 수 있음 
+        -->
+        <h1><a href="sources/index.html">WEB</a></h1>
         <input id="night_day" type="button" value="night" onclick="nightDayHandler(this)">
         <ol>
-            <li><a href="1.html">HTML</a></li>
-            <li><a href="2.html">CSS</a></li>
-            <li><a href="3.html">JavaScript</a></li>
+            <li><a href="sources/1.html">HTML</a></li>
+            <li><a href="sources/2.html">CSS</a></li>
+            <li><a href="sources/3.html">JavaScript</a></li>
         </ol>
         <h2>JavaScript</h2>
         <p>
