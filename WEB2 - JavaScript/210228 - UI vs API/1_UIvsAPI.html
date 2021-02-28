@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+        <title>UI vs API</title>
+    </head>
+
+    <body>
+        <!-- 
+            1. UI (User Interface)
+                - 사용자가 시스템을 제어하기 위해 사용하는 조작 장치
+            2. API (Application Programming Interface)
+                - 애플리케이션을 만들기 위해서 프로그래밍할 때 사용하는 조작 장치
+                - API와 순서는 서로 뗄레야 뗄 수 없는 관계 (모든 애플리케이션은 API를 순서대로 실행하는 것을 통해 만들어지기 때문)
+         -->
+        <input type="button" value="Click me" onclick="alert('Hello world!')">
+        <!--
+            - 경고창이 실행되는 타이밍이나 경고창에 표시되는 텍스트는 작성자의 의도가 반영되었기 때문에 작성자가 만든 거라 할 수 있음
+            - 그러나 코드에 경고창의 기능이나 모양 같은 것들이 설명되어 있지 않아 작성자가 만들지 않았다고도 할 수 있음
+            
+            - 웹 브라우저를 만드는 사람들이 경고창 기능을 미리 만들어 두었다가 alert 함수를 실행하면 경고창을 띄워 주겠다고 자바스크립트 사용 설명서를 통해 약속 => 작성자는 그 약속을 믿고 alert 함수를 호출하여 경고창을 켤 수 있게 됨
+                ==> 함수 alert은 경고창을 실행하는 조작 장치 (일종의 API)
+        -->
+    </body>
+</html>
