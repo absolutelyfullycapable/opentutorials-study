@@ -6,3 +6,4 @@
 
 ### studying
 - 2020.02.15 ~ 2020.02.28 : WEB2 - JavaScript (완강!)
+- 2020.03.15 ~ : 언어 - JavaScript (진행 중!)
