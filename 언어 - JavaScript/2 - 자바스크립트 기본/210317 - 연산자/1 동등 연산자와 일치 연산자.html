@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+        <title>자바스크립트 기본 - 연산자 (동등 연산자와 일치 연산자)</title>
+    </head>
+
+    <body>
+        <script>
+            // =: 대입 연산자
+
+            // ==: 동등 연산자 (equal operator) -> 좌항과 우항을 비교해서 서로 값이 같다면 true, 다르면 false
+            alert(1 == 2); // false
+            alert(1 == 1); // true
+            alert("one" == "one"); // true
+            alert("one" == "two"); // false
+            alert(1 == "1"); // 좌항과 우항의 값이 데이터 타입은 다르지만 실질적으로 가지고 있는 정보의 의미는 동일하므로 true
+            alert(1 == true); // 동등 연산자에서는 숫자 1을 true, 1이 아닌 수를 false로 간주
+            alert("1" == true); // true
+
+            // ===: 일치 연산자 🌟 (strict equal operator) -> 좌항과 우항이 "정확"하게 같을 때 (정보, 데이터 형식이 정확하게 같을 때) true, 다르면 false
+            alert(1 === "1"); // false
+            alert(1 === true); // false
+            alert("1" ===  true); // false
+            alert(0 === -0); // true
+            alert(NaN === NaN); // NaN: Not a Number(계산할 수 없음, 숫자가 아님) -> false
+
+            /*
+                - 실제 프로그래밍에서는 데이터 타입이 다른 것은 다른 데이터기 때문에 동등 연산자보다는 일치 연산자를 쓰는 것을 추천! 🌟
+                - 큰 프로젝트에서 비슷한 것을 같은 것으로 처리하는 문법은 에러로 심각한 결과를 초래할 수 있기 때문에 좋은 거라고는 할 수 없음
+            */
+
+            var a;
+            console.log(a); // undefined: 값이 정해져 있지 않음
+            var b = null;
+            console.log(b); // null: 값이 없음
+            // 둘 다 똑같이 값이 없는 상태지만 undefined는 프로그래머가 의도하지 않은 상황, null은 프로그래머가 현재 값이 없다는 것을 의도적으로 지정한 상황
+
+            console.log(a == b); // true
+            console.log(a === b); // false
+            // boolean(데이터 타입) -> true, false
+        </script>
+    </body>
+</html>
