@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+        <title>자바스크립트 기본 - 숫자와 문자 (문자의 표현)</title>
+    </head>
+
+    <body>
+        <script>
+            alert("hello world!"); // O
+            alert('hello world!'); // O
+            // 문자 작성 시 작은따옴표나 큰따옴표로 묶어서 사용
+            // 작은따옴표, 큰따옴표: 문자열의 구간을 컴퓨터에게 알려 주는 기호
+
+            alert("I'm Ji Hye. :)"); // O
+            alert('"Hello world!"'); // O
+            // 문자 내용에 작은따옴표를 쓰고 싶을 때는 큰따옴표로 묶어 주고, 큰따옴표를 쓰고 싶을 때는 작은따옴표로 묶어 줌
+            // alert('I'm Ji Hye!'); -> 이와 같이 작은따옴표 안에 작은따옴표 사용 불가능
+            alert('I\'m Ji Hye. :)'); // O -> 작은따옴표 안에 작은따옴표 사용하고 싶다면 '\'를 써 주면 됨 ('\' 바로 뒤에 오는 문자는 정보로 해석함) -> "escape"라고 함!
+
+            console.log(typeof 1); // number
+            console.log(typeof "1"); // string (문자열: 문자들의 모임, 집합)
+            // typeof -> 데이터가 어떤 종류인지 알 수 있음
+        </script>
+    </body>
+</html>
