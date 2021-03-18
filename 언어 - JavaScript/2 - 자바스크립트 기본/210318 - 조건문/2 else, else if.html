@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+        <title>자바스크립트 기본 - 조건문 (else, else if)</title>
+    </head>
+
+    <body>
+        <script>
+            // else: 앞쪽에 나오는 조건 구문이 실행되지 않았을 때
+            if(true) {
+                alert(1); // true라 이 문장이 실행되면
+            } else {
+                alert(2); // 이 문장은 실행 안 됨
+            }
+
+            if(false) {
+                alert(1); // false라 이 문장이 실행 안 된다면
+            } else {
+                alert(2); // 이 문장은 실행됨
+            }
+
+            // else if -> 조건문 더 풍부하게 사용 가능
+            if(false) {
+                alert(1);
+            } else if(true) {
+                alert(2); // -> 이 문장만 실행됨
+            } else if(true) {
+                alert(3);
+            } else {
+                alert(4);
+            }
+            if(false) {
+                alert(1);
+            } else if(false) {
+                alert(2);
+            } else if(true) {
+                alert(3); // -> 이 문장만 실행됨
+            } else {
+                alert(4);
+            }
+            if(false) {
+                alert(1);
+            } else if(false) {
+                alert(2);
+            } else if(false) {
+                alert(3);
+            } else {
+                alert(4); // -> 이 문장만 실행됨
+            }
+
+            // if, if~else, if~else if를 통해 조금 더 복잡한 상황을 지능적으로 처리할 수 있는 로직을 구사할 수 있게 됨
+            // if(true), if(false) 같은 구문은 쓰지 않음! if 안쪽에 boolean이 들어간다는 것을 설명하기 위해, true나 false에 따라 어떤 결과가 실행되는지 보여 주기 위해 예시로 작성한 것! 🌟
+        </script>
+    </body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+        <title>자바스크립트 기본 - 조건문 (논리 연산자)</title>
+    </head>
+
+    <body>
+        <script>
+            // 논리 연산자: 조건문을 조금 더 간결하고 다양한 방법으로 구사할 수 있도록 해 줌
+            // 1️⃣ &&(and 연산자): 좌항과 우항이 모두 true일 때 true
+            if(true && true) { // true
+                alert(1); // 구문 실행 O
+            }
+            if(true && false) { // false
+                alert(2); // 구문 실행 X
+            }
+            if(false && true) { // false
+                alert(3); // 구문 실행 X
+            }
+            if(false && false) { // false
+                alert(4); // 구문 실행 X
+            }
+
+            var id1 = prompt('아이디를 입력해 주세요.'),
+                pw1 = prompt('비밀번호를 입력해 주세요.');
+            if(id1 === 'jihye' && pw1 === '111111') {
+                alert('로그인하였습니다. ' + id1 + ' 님 반갑습니다!');
+            } else {
+                alert('아이디나 비밀번호가 일치하지 않습니다.');
+            }
+
+
+            // 2️⃣ ||(or 연산자): 좌항과 우항 중 하나라도 true면 true
+            if(true || true) { // true
+                alert(1); // 구문 실행 O
+            }
+            if(true || false) { // true
+                alert(2); // 구문 실행 O
+            }
+            if(false || true) { // true
+                alert(3); // 구문 실행 O
+            }
+            if(false || false) { // false
+                alert(4); // 구문 실행 X
+            }
+
+            var id2 = prompt('아이디를 입력해 주세요.');
+            if(id2 === 'lee' || id2 === 'ji' || id2 === 'hye') {
+                alert('인증에 성공했습니다.');
+            } else {
+                alert('인증에 실패했습니다.');
+            }
+
+            var id3 = prompt('아이디를 입력해 주세요.'),
+                pw3 = prompt('비밀번호를 입력해 주세요.');
+            if((id3 === 'lee' || id3 === 'ji' || id3 === 'hye') && pw3 === '111111') { // 괄호로 연산 우선 순위 정하기
+                alert('인증에 성공했습니다.');
+            } else {
+                alert('인증에 실패했습니다.');
+            }
+
+            // 3️⃣ !(not 연산자): 부정의 의미, boolean의 값을 역전시킴 (true를 false로, false를 true로)
+            if(!true && !true) { // false
+                alert(1); // 구문 실행 X
+            }
+            if(!true && !false) { // false
+                alert(2); // 구문 실행 X
+            }
+            if(!false && !true) { // false
+                alert(3); // 구문 실행 X
+            }
+            if(!false && !false) { // true
+                alert(4); // 구문 실행 O
+            }
+        </script>
+    </body>
+</html>

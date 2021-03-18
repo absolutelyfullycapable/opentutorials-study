@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+        <title>자바스크립트 기본 - 조건문 (조건문의 응용)</title>
+    </head>
+
+    <body>
+        <script>
+            var a = 1;
+            if(a === 1) { // 변수 a의 값에 따라 if 안에 들어가는 구간의 값이 true일 수도 있고, false일 수도 있음
+                alert(a);
+            }
+
+            var id = prompt('아이디를 입력해 주세요.');
+            if(id === 'jihye') {
+                var pw = prompt('비밀번호를 입력해 주세요.');
+                if(pw === '111111') { // 조건문 안에 또 다른 조건문 들어갈 수 있음 (조건문 중첩 🌟)
+                    alert('로그인하셨습니다.' + id + ' 님 반갑습니다!');
+                } else {
+                    alert('비밀번호가 일치하지 않습니다.');
+                    window.location.reload();
+                }
+            } else {
+                alert('아이디가 일치하지 않습니다.');
+                window.location.reload();
+            }
+        </script>
+    </body>
+</html>
