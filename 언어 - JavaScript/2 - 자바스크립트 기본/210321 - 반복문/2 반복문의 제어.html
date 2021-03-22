@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+        <title>자바스크립트 기본 - 반복문 (반복문의 제어)</title>
+    </head>
+
+    <body>
+        <script>
+            // 1️⃣ break: 반복 작업을 중간에 중단시키고 싶을 때 사용
+            for(var i = 0; i < 10; i++) {
+                if(i === 5) { // 반복문 안에 조건문 작성 가능 (반대의 경우도 가능)
+                    break; // 현재 반복문을 완전히 종료시키고 반복문 바깥으로 빠져나가라는 뜻 지님
+                }
+                document.write(i + ' coding everybody!<br>')
+            }
+
+            // 2️⃣ continue: continue를 만나면 실행은 즉시 중단되지만 반복은 지속됨 (그 순간에만 종료시키고 반복문은 계속 반복)
+            for(var i = 0; i < 10; i++) {
+                if(i === 5) {
+                    continue;
+                }
+                document.write(i + ' coding everybody!<br>')
+            }
+        </script>
+    </body>
+</html>

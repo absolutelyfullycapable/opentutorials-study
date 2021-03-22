@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+        <title>자바스크립트 기본 - 반복문 (반복문의 중첩)</title>
+    </head>
+
+    <body>
+        <script>
+            // 00 ~ 99 출력
+            for(var i = 0; i < 10; i++) {
+                for(var j = 0; j < 10; j++) {
+                    document.write('coding everybody ' + i + j + '<br>');
+                    // 문자열 + 숫자 -> 숫자를 문자열로 바꿔 줌
+                }
+            }
+            for(var i = 0; i < 10; i++) {
+                for(var j = 0; j < 10; j++) {
+                    document.write(String(i) + String(j) + '<br>');
+                }
+            }
+        </script>
+    </body>
+</html>
