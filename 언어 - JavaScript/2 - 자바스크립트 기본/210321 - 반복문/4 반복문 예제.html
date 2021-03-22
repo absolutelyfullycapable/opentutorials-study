@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+        <title>for 반복문 예제: 몇 개의 과목을 선택했는지 알림창으로 띄워 주기</title>
+        <style>
+            #btn { display: block; width: 100px; height: 20px; text-align: center; border: 1px solid #000; padding: 5px; margin-top: 20px; text-decoration: none; color: #000; }
+            #btn:hover { background-color: #000; color: #fff; }
+        </style>
+    </head>
+
+    <body>
+        <!--
+            해당 예제는 'for 반복문에서 초기화는 무조건 0으로 해야 되는 건가? 🧐'라는 궁금증이 생겨 서치해 보던 중.. https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide/Loops_and_iteration <- 여기에 나온 for 반복문 부분 예제를 보고 select를 input checkbox로 바꿔서 해 보았당
+            어렵지만 그래도 이것저것 서치해 보면서 성공한 데에 의미를 두자.. 🥲 하하
+         -->
+        <form>
+            <input type="checkbox" name="subject" value="korean"> Korean<br>
+            <input type="checkbox" name="subject" value="math"> Math<br>
+            <input type="checkbox" name="subject" value="science"> Science<br>
+            <input type="checkbox" name="subject" value="history"> History<br>
+            <input type="checkbox" name="subject" value="english"> English<br>
+            <input type="checkbox" name="subject" value="coding"> Coding<br>
+        </form>
+        <a href="#" id="btn">How many?</a>
+
+        <script>
+            function howMany() {
+                var subject = document.getElementsByName('subject'),
+                    count = 0;
+                for(var i = 0; i < subject.length; i++) {
+                    if(subject[i].checked) {
+                        count++;
+                    }
+                }
+                return count;
+            }
+            document.getElementById('btn').addEventListener('click', function() {
+                alert(howMany());
+            });
+        </script>
+    </body>
+</html>
