@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport"
+            content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+        <title>자바스크립트 기본 - 함수 (함수란?)</title>
+    </head>
+
+    <body>
+        <script>
+            /*
+                함수: 하나의 로직을 재실행할 수 있도록 하는 것, '코드의 재사용성'🌟을 높여 줌
+                    - 재사용성의 목표? 어떠한 동일한 코드가 있을 때 이 코드를 여러 곳에서 사용할 수 있는 형태로 만드는 것 (좋은 부품을 만드는 것)
+                    - 재사용성이 높아지면 유지보수 용이해짐, 코드의 가독성이 좋아짐
+                funtion 함수명([인자...[,인자]]) {
+                    코드
+                    return 반환값
+                }
+            */
+            function numbering() { // numbering이라는 함수 정의
+                document.write(1);
+            }
+            numbering(); // numbering이라는 함수 호출 -> 1
+
+            function example() {
+                i = 0;
+                while(i < 10) {
+                    document.write(i);
+                    i += 1;
+                }
+            }
+            example(); // 01234556789
+        </script>
+    </body>
+</html>

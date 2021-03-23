@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport"
+            content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+        <title>자바스크립트 기본 - 함수 (다양한 정의 방법)</title>
+    </head>
+
+    <body>
+        <script>
+            // 1️⃣ 함수를 변수에 대입
+            numbering = function() { // 함수에 대한 정의 부분이 numbering이라는 변수에 대입됨
+                i = 0;
+                while(i < 10) {
+                    document.write(i);
+                    i++;
+                }
+            }
+            numbering();
+
+            // 2️⃣ 익명 함수(이름이 없는 함수) - 함수 호출 시 쓰는 기호 사용 (정의와 호출을 동시에, 1회성으로 바로 추출하는 경우에 사용)
+            (function() {
+                i = 0;
+                while(i < 10) {
+                    document.write(i);
+                    i++;
+                }
+            })();
+        </script>
+    </body>
+</html>

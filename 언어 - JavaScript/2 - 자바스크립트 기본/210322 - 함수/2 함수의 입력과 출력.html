@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport"
+            content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+        <title>자바스크립트 기본 - 함수 (함수의 입력과 출력)</title>
+    </head>
+
+    <body>
+        <script>
+            // ======= 1️⃣ 입력 =======
+            function get_argument(arg) { // 여기서 arg는 '매개변수(parameter)'
+                return arg;
+            }
+            alert(get_argument(1));
+            alert(get_argument(2)); // 여기서 1과 2는 '인자(argument)'
+            // 값 자체는 '인자', 그 값을 받는 변수는 '매개변수(파라미터)'
+
+            function get_arguments(arg1, arg2) { // 복수의 값 가질 수 있음
+                return arg1 + arg2;
+            }
+            alert(get_arguments(10, 20)); // 30
+            alert(get_arguments(20, 30)); // 50
+
+
+            // ======= 2️⃣ 출력: return 키워드 사용 =======
+            function get_member1() {
+                return 'lee'; // 함수가 진행되면서 return 만나면 종료 -> return 뒤에 있는 값을 함수에 출력값으로 반환
+            }
+            function get_member2() {
+                return 'jihye';
+            }
+            function get_member3() {
+                return 'lee';
+                return 'ji';
+                return 'hye';
+            }
+            alert(get_member1());
+            alert(get_member2());
+            alert(get_member3()); // 'lee'만 실행됨 ('lee'값을 배출하고 함수가 종료됐기 때문)
+        </script>
+    </body>
+</html>
