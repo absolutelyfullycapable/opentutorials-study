@@ -14,11 +14,10 @@
                 return ['jh', 'dk', 'boo', 'mg'];
             }
             var svt = members();
-            console.log(svt.length); // .length: 변수 svt 안에 담겨 있는 원소(값)가 몇 개인지 나타냄 -> 4
+            console.log(svt.length); // .length: 변수 svt(배열) 안에 담겨 있는 원소(값)가 몇 개인지 나타냄 -> 4
             for(var i = 0; i < svt.length; i++) { // .length 덕분에 반복문이 동작하는 횟수는 배열에 담겨 있는 원소들의 개수에 따라 탄력적으로 바뀜
                 document.write(svt[i].toUpperCase() + '<br>'); // .toUpperCase(): 대문자 변환
             }
-
 
             // 2️⃣ 데이터 추가
             var li = ['a', 'b', 'c', 'd', 'e'];
