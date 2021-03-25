@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+        <title>자바스크립트 기본 - 배열 (배열의 사용)</title>
+    </head>
+
+    <body>
+        <script>
+            // 1️⃣ 배열 + 반복문 (배열의 진가는 반복문과 결합했을 때 나타남! -> 반복문으로 배열에 담긴 정보를 하나씩 꺼내서 처리할 수 있기 때문)
+            function members() {
+                return ['jh', 'dk', 'boo', 'mg'];
+            }
+            var svt = members();
+            console.log(svt.length); // .length: 변수 svt 안에 담겨 있는 원소(값)가 몇 개인지 나타냄 -> 4
+            for(var i = 0; i < svt.length; i++) { // .length 덕분에 반복문이 동작하는 횟수는 배열에 담겨 있는 원소들의 개수에 따라 탄력적으로 바뀜
+                document.write(svt[i].toUpperCase() + '<br>'); // .toUpperCase(): 대문자 변환
+            }
+
+
+            // 2️⃣ 데이터 추가
+            var li = ['a', 'b', 'c', 'd', 'e'];
+            li.push('f'); // .push(): 배열의 끝에 하나의 원소를 추가하는 함수 (배열 안에 어떤 정보를 밀어넣는다는 뜻)
+            console.log(li); // ['a', 'b', 'c', 'd', 'e', 'f']
+
+            li = li.concat(['g', 'h']); // .concat(): 배열의 끝에 함수에 담겨 있는 배열을 연결해서 하나의 배열로 만들고 리턴하는 함수
+            console.log(li); // ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
+
+            li.unshift('z'); // .unshift(): 배열의 시작 지점에 원소를 추가하는 함수, 인덱스 바뀜
+            console.log(li); // ['z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
+
+            li.splice(1, 0, '안녕하세요'); // .splice(인덱스 번호, 인덱스 번호부터 제거될 원소들의 수, 추가될 값): 배열의 특정 구간을 추출하거나, 특정 구간에 원소를 추가하는 함수
+            console.log(li); // ['z', '안녕하세요', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
+            li.splice(1, 2, '만나서', '반갑습니다');
+            console.log(li); // ['z', '만나서', '반갑습니다', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
+
+
+            // 3️⃣ 제거
+            var seventeen = ['13', 'members', '3', 'units', '1', 'team'];
+            seventeen.shift(); // .shift(): 배열의 첫 번째 원소를 제거하는 함수
+            console.log(seventeen); // ['members', '3', 'units', '1', 'team']
+
+            seventeen.pop(); // .pop(): 배열의 마지막 원소를 제거하는 함수
+            console.log(seventeen); // ['members', '3', 'units', '1']
+
+
+            // 4️⃣ 정렬
+            var num = ['3', '2', '5', '1', '4'];
+            num.sort();
+            console.log(num); // ['1', '2', '3', '4', '5']
+
+            num.reverse(); // 역순 정렬
+            console.log(num); // ['5', '4', '3', '2', '1']
+            // 자기만의 기준으로 정렬하고 싶다면 sort 메소드 안에 함수 넣으면 됨!
+        </script>
+    </body>
+</html>
