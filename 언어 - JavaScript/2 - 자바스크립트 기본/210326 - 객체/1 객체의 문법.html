@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+        <title>자바스크립트 기본 - 객체 (객체의 문법)</title>
+    </head>
+
+    <body>
+        <script>
+            /*
+                1️⃣ 객체(Object): 데이터를 담아내는 컨테이너
+                - 배열과 비슷하지만 배열과는 다르게 인덱스를 문자 혹은 우리가 직접 원하는 데이터로 지정 가능함 (가시적인 차이점)
+                - 프로그램을 조금 더 구조적이고 부품으로서 사용할 수 있는 로직을 만들 수 있는 단위
+            */
+
+
+            // 2️⃣ 객체 생성
+            var grades1 = { 'lee': 10, 'ji': 20, 'hye': 30 };
+            // 'lee', 'ji', 'hye': key
+            // 10, 20, 30 : value (예시로 작성된 숫자 말고도 다른 데이터 타입 올 수 있음)
+
+            var grades2 = {};
+            grades2['lee'] = 10;
+            grades2['ji'] = 20;
+            grades2['hye'] = 30;
+
+            var grades3 = new Object();
+            grades2['lee'] = 10;
+            grades2['ji'] = 20;
+            grades2['hye'] = 30;
+
+
+            // 3️⃣ 객체 값 가져오는 방법
+            console.log(grades1['lee']); // 10
+            console.log(grades1.lee); // 10
+
+            console.log(grades1['ji']); // 20
+            console.log(grades1.ji); // 20
+            console.log(grades['j' + 'i']); // 20
+            // console.log(grades.'j'+'1'); -> Syntax Error (유효하지 않은 문법)
+        </script>
+    </body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+        <title>자바스크립트 기본 - 객체 (객체지향 프로그래밍)</title>
+    </head>
+
+    <body>
+        <script>
+            // 객체지향 프로그래밍: 연관되어 있는 데이터와 연관되어 있는 어떤 처리를 한 곳에 모아서 그룹핑해놓은 프로그래밍 스타일 기법
+            var grades = {
+                'list': {'lee': 100, 'ji': 90, 'hye': 80}, // 객체에는 객체를 담을 수도 있고
+                'show': function() { // 함수도 담을 수 있음
+                    for(var name in this.list) {
+                        document.write(name + ': ' + this.list[name] + '<br>');
+                        // this 키워드 -> 여기에서는 함수가 속해 있는 객체를 가리키는 약속되어 있는 키워드
+                    }
+                }
+            };
+            grades.show(); // grades['show']();와 같음
+        </script>
+    </body>
+</html>

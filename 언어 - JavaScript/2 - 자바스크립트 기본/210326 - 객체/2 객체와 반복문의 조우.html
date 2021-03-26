@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+        <title>자바스크립트 기본 - 객체 (객체와 반복문의 조우)</title>
+    </head>
+
+    <body>
+        <script>
+            // for~in 반복문 (배열에서도 사용 가능)
+            var age = { 'JH': 27, 'DK': 25, 'BOO': 24, 'MG': 25 };
+            for(var name in age) { // 반복문이 한 번 실행될 때마다 변수 age에 담긴 객체의 key 값을 하나씩 가져와서 name에 담음
+                document.write('key: ' + name + ', value: ' + age[name] + '<br>');
+            }
+            console.log(age);
+        </script>
+
+        <!-- 자바스크립트로 목록 만들기 (프로그래밍적으로 html 제어) -->
+        <ul>
+            <script>
+                var age = { 'JH': 27, 'DK': 25, 'BOO': 24, 'MG': 25 };
+                for(var name in age) {
+                document.write('<li>key: ' + name + ', value: ' + age[name] + '</li>');
+            }
+            </script>
+        </ul>
+    </body>
+</html>
