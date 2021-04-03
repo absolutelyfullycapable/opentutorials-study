@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+        <title>자바스크립트 기본 - 정규 표현식 (정규 표현식의 치환)</title>
+    </head>
+
+    <body>
+        <script>
+            var urlPattern = /\b(?:https?):\/\/[a-z0-9-+&@#\/%?=~_|!:,.;]*/gim,
+                content = '네이버: https://www.naver.com 입니다. 다음: http://www.daum.net',
+                result = content.replace(urlPattern, function(url) {
+                    return '<a href="' + url + '">' + url + '</a>';
+                });
+            document.write(result);
+        </script>
+    </body>
+</html>

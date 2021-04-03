@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+        <title>자바스크립트 기본 - 정규 표현식</title>
+        <style>
+        </style>
+    </head>
+
+    <body>
+        <!-- "해당 강의는 정규 표현식 자체가 아닌 자바스크립트 내에서 정규 표현식의 사용 방법에 초점이 맞춰져 있음!" -->
+        <script>
+            /*
+                1. 정규 표현식 (regular expression): 문자열에서 특정한 문자를 찾아내는 도구
+                    - 문자열이 있을 때, 그 문자열 안에서 해당 문자가 있는지 여부와 그 문자를 다른 문자로 치환해 주는 등 여러 역할을 하는 도구
+
+
+                2. 사용 방법
+                    - 컴파일: 어떠한 작업(어떤 문자가 있는지 판단하는 것, 문자를 치환하는 것, ...)을 하기 위해서 필요한 대상을 찾는 것
+                        - 패턴을 찾는 것
+                    - 실행: 찾은 패턴에 대해서 어떠한 작업을 구체적으로 하는 것
+
+
+                3. 정규 표현식에서 패턴 만드는 방법
+                    - 정규 표현식 리터럴
+            */
+                    var pattern = /a/; // 슬래시(/)로 시작하고 찾고자 하는 문자(a)를 위치시킨 후 슬래시로 끝냄 -> '슬래시 사이에 있는 문자가 찾고 있는 대상이다'라고 컴퓨터에게 알려 주는 것
+            /*
+                    - 정규 표현식 객체 생성자
+            */
+                    var pattern = new RegExp('a'); // RegExp: 정규 표현식(regular expression)의 약자
+        </script>
+    </body>
+</html>
