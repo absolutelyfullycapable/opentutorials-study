@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+        <title>함수 지향 - 유효 범위 (전역 변수를 사용하는 법)</title>
+    </head>
+
+    <body>
+        <script>
+            // 불가피하게 전역 변수를 사용해야 되는 경우 -> 자기 자신만 쓰는 전역 변수 하나만을 만들어놓고, 나머지 다른 전역 변수들은 그 전역 변수 객체의 소속으로 만들면 변수의 이름이 충돌할 확률은 현저하게 낮아짐
+            var MYAPP = {}; // 전역 변수, 변수의 값은 객체
+            MYAPP.calculator = {
+                'left': null, // null: 값을 아직 지정하지 않았다는 걸 프로그래머가 명시적으로 지정하는 것
+                'right': null
+            }
+            MYAPP.coordinate = {
+                'left': null,
+                'right': null
+            }
+
+            MYAPP.calculator.left = 10;
+            MYAPP.coordinate.right = 20;
+            function sum() {
+                return MYAPP.calculator.left + MYAPP.coordinate.right;
+            }
+            document.write(sum());
+
+
+            // 하나의 전역 변수도 사용하고 싶지 않을 때 -> 익명 함수 사용
+            (function() {
+                var MYAPP = {}; // 함수의 지역 변수가 됨
+                MYAPP.calculator = {
+                    'left': null,
+                    'right': null
+                }
+                MYAPP.coordinate = {
+                    'left': null,
+                    'right': null
+                }
+
+                MYAPP.calculator.left = 10;
+                MYAPP.coordinate.right = 20;
+                function sum() {
+                    return MYAPP.calculator.left + MYAPP.coordinate.right;
+                }
+                document.write(sum());
+            }()); // 함수 바로 호출
+        </script>
+    </body>
+</html>

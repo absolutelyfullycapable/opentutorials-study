@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+        <title>함수 지향 - 유효 범위</title>
+    </head>
+
+    <body>
+        <script>
+            // 유효 범위(Scope): 변수의 수명
+
+            var vscope = 'global'; // 전역 변수 (global variables): 자바스크립트 애플리케이션 전역에서 접근 가능
+            function fscope() { // fscope 함수는 함수 내에 선언되지 않은, 함수 바깥에서 선언된 vscope 변수에 접근 가능
+                alert(vscope);
+            }
+            fscope(); // 'global' 출력
+
+            /* ================================================== */
+
+            var vscope = 'global';
+            function fscope() {
+                var vscope = 'local'; // 지역 변수 (local variables): 자바스크립트에서는 함수의 중괄호 안쪽에서만 접근 가능 (지역 변수를 선언할 수 있는 곳은 함수로 제한됨)
+                alert(vscope); // 자기 자신에게서 가까운 쪽, 함수 내에서 정의된 vscope 출력
+            }
+            fscope(); // 'local' 출력
+
+            /* ================================================== */
+
+            var vscope = 'global';
+            function fscope() {
+                var vscope = 'local',
+                    lv = 'local variables';
+                alert(lv);
+            }
+            fscope(); // 'local variables' 출력
+            alert(lv); // Uncaught ReferenceError: lv is not defined -> fscope 함수 안에서 만들어진 지역 변수는 그 지역에서만 접근할 수 있기 때문
+
+            /* ================================================== */
+
+            var vscope = 'global';
+            function fscope() {
+                var vscope = 'local';
+            }
+            alert(vscope); // fscope 함수 안에서 var 변수 키워드 사용 시 (지역 변수 선언) 'global' 출력, 사용 안 할 시 (내부에서 변수 키워드 생략한 채 선언하면 그 변수는 자동으로 전역 변수로 선언) 'local' 출력
+
+            /* ================================================== */
+
+            var vscope = 'global';
+            function fscope() {
+                var vscope = 'local'; // 1 지역 변수 선언
+                vscope = 'local'; // 2 변수 키워드가 생략됐다고 하더라도 우선 로컬 변수가 존재하는지 체크 -> 로컬 변수가 없다면 전역 변수가 됨, 있다면 지역 변수를 가리킴
+            }
+            alert(vscope); // 3 'global' 출력
+
+            /* ================================================== */
+
+            // '왜 전역 변수로 써야 되는가?'에 대한 구체적인 이유를 인지하고 있지 못한 상태라면 언제나 '지역 변수'를 사용해야 함 -> 여러 프로그램을 결합하다 보면 같은 이름의 변수를 다른 의미로 사용하는 경우가 생길 수 때문임 (이름의 충돌)
+        </script>
+    </body>
+</html>
