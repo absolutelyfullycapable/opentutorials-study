@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+        <title>함수 지향 - 값으로서의 함수와 콜백 (콜백)</title>
+    </head>
+
+    <body>
+        <script>
+            // 콜백: 어떠한 함수가 수신하는 인자가 함수인 경우
+
+            var numbers = [20, 8, 5, 3, 1, 2, 4, 6, 9, 7, 10],
+                sortFunc = function(a, b) { // 🌟 sortFunc가 콜백 함수
+                    /*
+                        (1) 비교 대상인 a와 b가 인자로 전달됨
+                        (2) a에서 b를 뺀 결과가 음수면 a < b (a가 먼저 옴),
+                                          0이면 a = b (서로에 대해 변경하지 않고 모든 다른 요소에 대해 정렬),
+                                          양수면 a > b (b가 먼저 옴)
+                    */
+                    console.log(a, b);
+                    return a - b; // (3) sort 메소드는 return 값이 음수, 0, 양수인지에 따라 순서를 정함
+                    // return b - a; -> 역순 정렬 [20, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+                }
+            alert(numbers.sort(sortFunc)); // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 20]
+
+            /*
+                - numbers -> 배열 객체, sort() -> 메소드
+                - 이러한 객체와 메소드는 자바스크립트가 기본적으로 가지고 있으면서 우리에게 제공하는 기능이기 때문에 '내장(빌트인) 객체, 내장(빌트인) 메소드'라고 부름
+                - 우리가 만드는 객체, 함수 등은 '사용자 정의 객체, 사용자 정의 함수'라고 함
+            */
+        </script>
+
+        <script>
+            // 다음 나오는 두 예제는 https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/sort -> 참고하여 작성
+
+            // ========== 예제 1 ==========
+            var members = [
+                { name: 'JH', age: 26 },
+                { name: 'DK', age: 25 },
+                { name: 'Coups', age: 27 },
+                { name: 'Boo', age: 24 }
+            ]
+
+            // name 기준으로 정렬
+            var sortName = members.sort(function(a, b) {
+                var nameA = a.name.toUpperCase(),
+                    nameB = b.name.toUpperCase();
+                if(nameA > nameB) {
+                    return 1;
+                } else if(nameA < nameB) {
+                    return -1;
+                } else {
+                    return 0;
+                }
+            });
+            console.log(sortName);
+        </script>
+
+        <script>
+            var members = [
+                { name: 'JH', age: 26 },
+                { name: 'DK', age: 25 },
+                { name: 'Coups', age: 27 },
+                { name: 'Boo', age: 24 }
+            ]
+
+            // age 기준으로 정렬
+            var sortAge = members.sort(function(a, b) {
+                var ageA = a.age,
+                    ageB = b.age;
+                return ageA - ageB;
+            })
+            console.log(sortAge);
+        </script>
+
+        <script>
+            // ========== 예제 2 (내가 한 것) ==========
+            var stringArray = ['Blue', 'Humpback', 'Beluga'],
+                numericStringArray = ['80', '9', '700'],
+                numberArray = [40, 1, 5, 200],
+                mixedNumericArray = ['80', '9', '700', 40, 1, 5, 200];
+
+            var sortString = stringArray.sort(function(a, b) {
+                var stringA = a.toUpperCase(),
+                    stringB = b.toUpperCase();
+                if(stringA > stringB) {
+                    return 1;
+                } else if(stringA < stringB) {
+                    return -1;
+                } else {
+                    return 0;
+                }
+            });
+            console.log(sortString);
+
+            var sortNumber1 = numericStringArray.sort(function(a, b) {
+                a = Number(a);
+                b = Number(b);
+                return a - b;
+            });
+            console.log(sortNumber1);
+
+            var sortNumber2 = numberArray.sort(function(a, b) {
+                return a - b;
+            });
+            console.log(sortNumber2);
+
+            var sortNumber3 = mixedNumericArray.sort(function(a, b) {
+                a = Number(a);
+                b = Number(b);
+                return a - b;
+            });
+            console.log(sortNumber3);
+        </script>
+
+        <script>
+            // ========== 예제 2 (홈페이지에 올라와 있는 것) ==========
+            var stringArray = ['Blue', 'Humpback', 'Beluga'],
+                numericStringArray = ['80', '9', '700'],
+                numberArray = [40, 1, 5, 200],
+                mixedNumericArray = ['80', '9', '700', 40, 1, 5, 200];
+
+            function compareNumber(a, b) {
+                return a - b;
+            }
+
+            console.log(stringArray.sort());
+            console.log(numericStringArray.sort(compareNumber));
+            console.log(numberArray.sort(compareNumber));
+            console.log(mixedNumericArray.sort(compareNumber));
+        </script>
+    </body>
+</html>
