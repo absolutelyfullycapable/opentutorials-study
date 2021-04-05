@@ -11,6 +11,7 @@
         <script>
             // 정적 유효 범위(static scoping, 렉시컬(lexical scoping)): 자바스크립트는 함수가 '선언된 시점'에서 유효 범위를 가짐
 
+            // 예제 1
             var i = 5; // 전역 변수
             function a() {
                 var i = 10; // 지역 변수
@@ -20,6 +21,44 @@
                 document.write(i); // 함수 b가 선언된 시점(호출된 시점 X)에서 변수명이 i인 지역 변수를 찾게 됨 -> 없음 -> 변수명이 i인 전역 변수를 찾게 됨 -> 5
             }
             a(); // 5
+        </script>
+        
+        <script>
+            // 예제 2
+            var a = 10,
+                b = 20,
+                c = 30;
+
+            function outerFunc() {
+                var b = 200,
+                    c = 300;
+                innerFunc();
+            }
+            function innerFunc() {
+                var c = 3000;
+                document.write(a + '<br>'); // 10
+                document.write(b + '<br>'); // 20
+                document.write(c + '<br>'); // 3000
+            }
+            outerFunc();
+        </script>
+
+        <script>
+            var a = 10,
+                b = 20,
+                c = 30;
+            function outerFunc() {
+                var b = 200,
+                    c = 300;
+                function innerFunc() {
+                    var c = 3000;
+                    document.write(a + '<br>'); // 10
+                    document.write(b + '<br>'); // 200
+                    document.write(c + '<br>'); // 3000
+                }
+                innerFunc();
+            }
+            outerFunc();
         </script>
     </body>
 </html>
