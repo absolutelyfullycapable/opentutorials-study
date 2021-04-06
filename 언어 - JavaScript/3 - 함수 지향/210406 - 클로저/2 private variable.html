@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+        <title>함수 지향 - 클로저 (private variable (비밀 변수))</title>
+    </head>
+
+    <body>
+        <script>
+            /*
+                - private variable: 소프트웨어가 커지는 과정에서 어떠한 정보가 있을 때 그 정보를 아무나 수정하지 못하도록 방지하는 것
+                    - private 기능이 있는 건 아니고 private 효과가 있다는 의미 정도로 생각하면 됨 (자바스크립트는 기본적으로 private한 속성을 지원하지 않음)
+                - 클로저는 자바스크립트가 private variable을 사용할 수 있도록 하는 아주 좋은 메커니즘(체제)
+            */
+        </script>
+
+        <script>
+            // 이 예제에서는 'title'이 private variable -> .get_title(), .set_title()을 통해서만 접근 가능
+            function favoriteMovie(title) { // 매개 변수는 함수 안에서 지역 변수로 사용됨
+                return { // 객체 리턴
+                    get_title: function() { // 메소드
+                        // 내부 함수의 소속이 객체의 소속이라는 점만 다를 뿐, favoriteMovie 함수에 대한 내부 함수임
+                        return title;
+                    },
+                    set_title: function(_title) {
+                        if(typeof _title === 'String') {
+                            title = _title;
+                        } else {
+                            alert('제목은 문자열이어야 합니다.');
+                        }
+                    }
+                }
+            };
+            eternal = favoriteMovie('Eternal Sunshine');
+            summer = favoriteMovie('500 days of summer');
+
+
+            // eternal과 summner는 똑같이 리턴되는 객체를 담고 있지만, 객체들이 실행되는 맥락은 서로 다름 (객체가 내부적으로 가지고 있는 메소드들이 접근하는 title의 값이 다르기 때문)
+            alert(eternal.get_title()); // 'Eternal Sunshine' 출력
+            alert(summer.get_title()); // '500 days of summer' 출력
+
+
+            /*
+                (1) favoriteMovie를 통해 두 개의 객체(eternal, summer)를 만들었음
+                (2) 두 개의 객체는 각각 자신들이 실행된 그 시점에서 외부 함수의 지역 변수에 접근할 수 있었고, 그 지역 변수의 값은 유지됨
+                (3) 그래서 eternal.set_title('이터널 선샤인');을 통해 내용을 '이터널 선샤인'으로 바꾼다는 것은 eternal 객체가 접근할 수 있는 title의 값만 바꿀 뿐 summer가 접근할 수 있는 title의 값에는 어떠한 영향도 미치지 않음
+            */
+            eternal.set_title('이터널 선샤인');
+            alert(eternal.get_title()); // '이터널 선샤인' 출력
+            alert(summer.get_title()); // '500 days of summer' 출력
+        </script>
+    </body>
+</html>

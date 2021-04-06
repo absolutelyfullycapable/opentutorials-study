@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <title>함수 지향 - 클로저 (외부 함수와 내부 함수)</title>
+</head>
+
+<body>
+    <script>
+        // 클로저(closure): 내부 함수가 외부 함수의 맥락(context)에 접근할 수 있는 것, 내부 함수와 밀접한 관계 가짐
+
+        function outer() { // 외부 함수
+            function inner() { // 내부 함수
+                var title = 'hello world!';
+                alert(title);
+            }
+            inner();
+        };
+        outer(); // 'hello world!' 출력
+    </script>
+
+    <script>
+        // 🌟 1️⃣ 내부 함수에서 외부 함수의 지역 변수에 접근 가능
+        function outer() {
+            var title = 'hello world!'; // 외부 함수에 정의되어 있는 지역 변수
+            function inner() {
+                alert(
+                title); // title이라는 변수를 사용하려고 했을 때, inner라는 함수에 title이라는 지역 변수가 존재하지 않는다면 자바스크립트는 inner를 포함하고 있는 바깥쪽의 함수에서 title이라는 변수를 찾게 됨
+            };
+            inner();
+        };
+        outer(); // 'hello world!' 출력
+    </script>
+
+    <script>
+        // 🌟 2️⃣ 외부 함수가 종료된 이후에도 내부 함수를 통해서 접근 가능
+        function outer() { // 외부 함수 outer 정의
+            var title = 'hello world!';
+            return function () { // 내부 함수 return 하고 있음
+                alert(title);
+            };
+        };
+        var inner = outer();
+        inner(); // 'hello world!' 출력
+
+        /*
+            return 했다는 것 -> 그 함수는 종료됐다는 것
+            inner 변수에 담겨 있는 함수를 호출한 순간에는 이미 outer 함수는 실행이 끝나서 종료된 상태
+            그럼에도 불구하고 파생된 내부 함수에서 이미 사라진 외부 함수에 접근 가능 (클로저: 외부 함수는 외부 함수의 지역 변수를 사용하는 내부 함수가 소멸될 때까지 소멸되지 않는 특성을 가지고 있음)
+            이러한 매커니즘을 클로저라고 함! 😮
+        */
+    </script>
+</body>
+
+</html>

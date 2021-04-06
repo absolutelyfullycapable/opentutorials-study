@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+        <title>함수 지향 - 클로저 (클로저의 응용)</title>
+    </head>
+
+    <body>
+        <script>
+            var arr = [];
+            for(var i = 0; i < 5; i++) { // 2️⃣ 여기 있는 i의 값이 우리가 정의한 함수의 외부 함수의 지역 변수가 아니기 때문
+                arr[i] = function() {
+                    return i;
+                }
+            }
+            for(var idx in arr) {
+                console.log(arr[idx]());
+            } // 1️⃣ 5가 다섯 번 반복됨
+        </script>
+
+        <script>
+            /*
+                위의 결과가
+                0
+                1
+                2
+                3
+                4
+                👆🏻 이렇게 제대로 나오려면 👇🏻 이렇게 수정해야 함
+            */
+            var arr = [];
+            for(var i = 0; i < 5; i++) {
+                arr[i] = function(id) {
+                    return function() { // return된 내부 함수가 배열에 담기게 됨
+                        return id;
+                    }
+                }(i);
+            }
+            for(var idx in arr) {
+                console.log(arr[idx]());
+            }
+        </script>
+    </body>
+</html>

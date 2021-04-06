@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+        <title>함수 지향 - 클로저 (클로저의 응용 - 보충 설명)</title>
+    </head>
+
+    <body>
+        <!-- 해당 내용은 https://opentutorials.org/course/743/6544 페이지 내 금도끼은도끼 님의 댓글입니다! :) (보기 좋게 약간의 수정이 있습니다)-->
+        <script>
+            /*
+            함수는 함수 내부에 변수(지역 변수)가 있으면 그걸 사용하고,
+            없다면 외부에서 가장 '최근 값'을 사용합니다. (이전 변수 값은 어디에도 저장되지 않습니다.)
+
+            즉 arr[i]의 i값과 function() { return i } 에서의 i값은 다른 곳을 가르키고 있는 것이죠.
+
+            함수 특징인데 함수에서 i값은 먼저 함수 내부에 i가 있나 확인하구 있으면 그걸 쓰고
+            없으면 외부에서 찾는데 최종 i값을 가져오게 되는 겁니다.
+            예를 들면 for문밖에다가 i =10;이라고 추가해 보면 10이 5번 반복될 것입니다.
+            */
+
+            var arr = []
+            for(var i = 0; i < 5; i++){
+                arr[i] = function(){
+                    return i;
+                }
+            }
+            i = 10; // <- 이렇게 넣어 주면 함수 i는 가장 최신값 10을 가져오고, 최종적으로 10을 5번 반복합니다.
+            for(var index in arr) {
+                console.log(arr[index]());
+            }
+
+            /*
+            따라서 제대로 나오게 할려면
+            1️⃣ 함수에 인자로 i값을 넣어주고
+            2️⃣ 인자 i값을 함수 내부에 존재하는 지역 변수처럼 사용할 수 있도록
+            3️⃣ 내부 함수를 만들어 리턴값으로 참조하면 됩니다. (말로 설명하려니 어렵죠 ^^;)
+            예를 들어 👇🏻
+            */
+            arr[i] = function(id) { // <- 2️⃣ 번 : id 에 인자값 i가 들어옴
+                return function(){
+                    return id; // <- 3️⃣ 번: 들어온 인자값을 함수 내의 지역 변수처럼 사용할 수 있게 내부 함수를 만들어
+                } // 리턴값으로 들어온 인자값을 가리킴
+            }(i); // <- 1️⃣ 번: i값을 인자로 넣어주면
+        </script>
+    </body>
+</html>
