@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+        <title>함수 지향 - arguments(function length)</title>
+    </head>
+
+    <body>
+        <script>
+            /*
+                - 매개 변수의 수
+                    (1) arguments.length -> 어떠한 함수로 전달된 실제 인자의 수가 몇 개인가를 알 수 있음
+                        - 그 함수가 몇 개의 인자를 명시적으로 정의하고 있는가는 알아낼 수 없음
+                    (2) 함수.length -> 함수에 정의된 인자의 수를 알 수 있음
+                - 상황에 따라 '함수에 몇 개의 인자를 받았는가'와 '그 함수가 몇 개의 매개 변수를 정의하고 있는가'가 일치해야 하는 경우가 있음 -> 두 개를 비교해서 그 결과가 다르다면 작성자의 의도에서 벗어난 거라 에러를 띄우거나 경고를 띄울 수 있음
+            */
+
+            function zero() {
+                console.log(
+                    'zero.length', zero.length,
+                    'arguments', arguments.length
+                )
+            }
+            zero(); // zero.length 0, arguments.length 0
+
+
+            function one(arg1) { // 매개 변수는 하나, 인자는 둘
+                console.log(
+                    'one.length', one.length,
+                    'arguments', arguments.length
+                )
+            }
+            one('val1', 'val2'); // one.length 1, arguments.length 2
+
+
+            function two(arg1, arg2) { // 매개 변수는 둘, 인자는 하나
+                console.log(
+                    'two.length', two.length,
+                    'arguments', arguments.length
+                )
+            }
+            two('val1'); // two.length 2, arguments.length 1
+        </script>
+    </body>
+</html>

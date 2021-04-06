@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+        <title>함수 지향 - arguments(arguments란?)</title>
+    </head>
+
+    <body>
+        <script>
+            /*
+                - arguments: 함수 안에서 그 함수의 여러 정보들(특히 인자와 관련된 정보들)을 담고 있는 객체 (사용 방법이 배열과 아주 유사하나 배열은 아님, 실제로는 arguments 객체의 인스턴스)
+                    -> 객체를 통해서 사용자가 전달한 인자들에 접근할 수 있는 기능을 제공
+            */
+
+            function sum() {
+                var i, _sum = 0;
+                for(i = 0; i < arguments.length; i++) { // 사용자가 전달한 인자의 수만큼 for문 실행됨
+                    /*
+                        - arguments -> 자바스크립트와 우리 사이에 약속되어 있는 특수한 이름의 변수명, 변수 안에는 arguments라고 하는 유사 배열이 담겨져 있음 (사용자가 전달한 인자가 들어가 있음)
+                        - arguments.length 하면 sum 함수로 전달된 인자가 몇 개인지 알 수 있음 (여기서는 4)
+                    */
+                    document.write(i + ': ' + arguments[i] + '<br>');
+                    // arguments[i]를 통해 인자의 특정 자리의 값을 알 수 있음
+                    _sum += arguments[i];
+                }
+                return _sum;
+            }
+            document.write('result: ' + sum(1, 2, 3, 4));
+            /*
+                0: 1
+                1: 2
+                2: 3
+                3: 4
+                result: 10
+            */
+        </script>
+    </body>
+</html>
