@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+        <title>함수 지향 - 함수의 호출(apply 사용) 🥲</title>
+    </head>
+
+    <body>
+        <script>
+            o1 = { val1: 1, val2: 2, val3: 3 }
+            o2 = { vl: 10, v2: 50, v3: 100, v4: 25 }
+
+            function sum() {
+                var _sum = 0;
+                for(name in this) { // this는 호출할 때 정해짐
+                    _sum += this[name];
+                }
+                return _sum;
+            }
+
+            alert(sum.apply(o1)); // sum을 호출할 때 더한 합계를 내는 대상은 o1이라는 객체 -> 6
+            /*
+                o1이라고 하는 객체를 apply의 인자로 주게 되면 실행되는 순간 o1이 sum 함수의 this가 됨
+                👇🏻
+                function sum() {
+                    var this = o1, // <- this는 이렇게 해석된다고 보면 됨
+                        _sum = 0;
+                    for(name in this) {
+                        _sum += this[name];
+                    }
+                    return _sum;
+                }
+            */
+            alert(sum.apply(o2)); // 185
+        </script>
+
+        <script>
+            // 이해를 돕기 위해 위 예제를 풀어서 쓰면 이렇게 됨
+            function sum() {
+                var _sum = 0;
+                for(name in this) {
+                    if(typeof this[name] !== 'function') { // 이 조건을 넣지 않으면 함수도 같이 출력됨
+                        _sum += this[name];
+                    }
+                }
+                return _sum;
+            }
+
+            o1 = { val1: 1, val2: 2, val3: 3 sum: sum }
+            o2 = { v1: 10, v2: 50, v3: 100, v4: 25, sum: sum }
+
+            alert(o1.sum());
+            alert(o2.sum());
+        </script>
+    </body>
+</html>

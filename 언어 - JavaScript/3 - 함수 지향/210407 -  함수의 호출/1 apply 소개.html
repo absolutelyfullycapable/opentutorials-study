@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+        <title>함수 지향 - 함수의 호출(apply 소개)</title>
+    </head>
+
+    <body>
+        <script>
+            // 함수를 호출하는 다양한 방법 (자바스크립트의 유연함을 잘 보여 줌)
+
+            // 1️⃣ 기본적으로 함수를 호출하는 방법
+            function func() {}
+            func();
+        </script>
+
+        <script>
+            /*
+                2️⃣ .call, .apply를 통한 간접 호출
+                - 자바스크립트에서 함수는 일종의 객체
+                - function func() {}; 일 때 func라는 이름의 함수는 객체이기 때문에 자바스크립트가 기본적으로 제공하는 내장된 메소드를 가지고 있음
+                - .call(), .apply()를 통해 해당 메소드에 접근할 수 있음
+                    - 두 개는 같은 취지이지만 사용 방법이 약간 다름 (수업에서는 .apply()만 다룸!)
+            */
+            function sum(arg1, arg2) {
+                return arg1 + arg2;
+            }
+            document.write(sum(1, 2) + '<br>'); // 함수를 호출하는 기본적인 방법 -> 3
+            document.write(sum.apply(null, [1, 2]));
+            /*
+                - 첫 번째 인자로 null이 들어갈 경우에 쓰면 안 됨 (비효율적이라.. + null이 아닌 다른 것을 사용하는 경우에 쓰라고 있는 메소드)
+                - 두 번째 인자로 전달하고자 하는 오리지널 인자를 배열에 순서대로 값을 담음
+            */
+        </script>
+    </body>
+</html>
